@@ -1,0 +1,11 @@
+@import 'https://use.typekit.net/oov2wcw.css';
+@import 'tailwindcss';
+
+@layer base{
+  html{
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-linear-to-br from-black to-gray-700 text-white font-century-gothic relative
+  }
+}
