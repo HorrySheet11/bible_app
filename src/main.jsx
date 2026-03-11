@@ -8,9 +8,9 @@ import { BibleProvider } from "./context/BibleContext.jsx";
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
 		<BibleProvider>
-		  <BrowserRouter>
-  			<App />
-  		</BrowserRouter>
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
 		</BibleProvider>
 	</StrictMode>,
 );

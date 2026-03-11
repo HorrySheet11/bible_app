@@ -24,7 +24,7 @@
     @apply text-lg;
   }
   body {
-    @apply bg-linear-to-br from-black to-gray-700 text-white font-century-gothic relative
+    @apply bg-linear-to-br from-black to-gray-700 text-white font-century-gothic relative min-h-screen
   }
 }
 
@@ -32,4 +32,5 @@
   --font-century-gothic: century-gothic, sans-serif; 
   --animate-appear: appear 1s ease-in-out;
   --animate-section-appear: appear 1s ease-in-out;
+  --grid-cols-auto: repeat(auto-fit, minmax(200px, 1fr));
 }
