@@ -4,12 +4,13 @@ import Books from "./Books";
 import Chapters from "./Chapters";
 import Verse from "./Verse";
 import Verses from "./Verses";
+import Header from '../components/Header';
 
 function Home() {
 	const { book, chapter, verse } = useContext(BibleContext);
 	return (
-		<div>
-			<h1>The Bible</h1>
+		<div className="mt-30">
+			<Header />
 			{!book && <Books />}
 			{book && !chapter && <Chapters />}
 			{book && chapter && !verse && <Verses />}

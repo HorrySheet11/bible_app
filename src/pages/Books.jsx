@@ -27,7 +27,7 @@ function Books() {
 			{!books ? (
 				<p>Loading...</p>
 			) : (
-				<div className="grid p-10 gap-5 grid-cols-[repeat(auto-fill,minmax(175px,1fr))] grid-rows-auto">
+				<div className="grid p-10 gap-5 grid-cols-[repeat(auto-fill,minmax(185px,1fr))] grid-rows-auto">
 					{books?.map((book) => (
 						<button
 							type="button"
