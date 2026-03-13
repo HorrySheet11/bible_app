@@ -10,12 +10,12 @@ function Verse() {
 
 	return (
 		<div>
-			<div>Verse</div>
+			<div>Verse </div>
 			<div>
 				{verses.map((verse) => (
-					<div key={verse.number}>
-						<h4 className="inline-block">{verse.number}</h4>
-						<p>{verse.content[0]}</p>
+					<div key={verse.number} className="px-5 py-2">
+						<h3 className="inline ">{verse.number}</h3>{" "} 
+						<h4 className="inline ">{verse.content[0]}</h4>
 					</div>
 				))}
 			</div>

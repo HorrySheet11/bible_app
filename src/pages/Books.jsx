@@ -3,9 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { BibleContext } from "../context/BibleContext.jsx";
 
 function Books() {
-	const { book, setBook } = useContext(BibleContext);
+	const { setBook } = useContext(BibleContext);
 	const [books, setBooks] = useState(null);
-	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		async function fetchBooks() {
@@ -17,7 +16,6 @@ function Books() {
 		}
 		try {
 			fetchBooks();
-			setIsLoading(false);
 		} catch (error) {
 			console.error(error);
 		}
@@ -26,7 +24,7 @@ function Books() {
 	return (
 		<div>
 			<h2 className="text-center">Books</h2>
-			{isLoading ? (
+			{!books ? (
 				<p>Loading...</p>
 			) : (
 				<div className="grid p-10 gap-5 grid-cols-[repeat(auto-fill,minmax(175px,1fr))] grid-rows-auto">
