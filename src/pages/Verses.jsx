@@ -19,6 +19,10 @@ function Verses() {
 		}
 	}, [chapter, book.id, setVerses]);
 
+	useEffect(() => {
+		console.log(verses);
+	}, [verses]);
+
 	return (
 		<div>
 			<h1>Verses</h1>

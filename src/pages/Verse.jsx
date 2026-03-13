@@ -12,16 +12,15 @@ function Verse() {
 		<div>
 			<div>Verse</div>
 			<div>
-        //TODO: map verse array
-				{verses?.map((verse) => (
+				{verses.map((verse) => (
 					<div key={verse.number}>
 						<h4 className="inline-block">{verse.number}</h4>
-						<p>{verse.content}</p>
+						<p>{verse.content[0]}</p>
 					</div>
 				))}
 			</div>
 		</div>
 	);
 }
-
+// Array.from({ length: verses.length }, (_, index) => index + 1)
 export default Verse;
