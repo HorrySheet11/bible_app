@@ -22,7 +22,7 @@ function Books() {
 	}, []);
 
 	return (
-		<div>
+		<div className="transition ease-in-out duration-200 ">
 			<h2 className="text-center">Books</h2>
 			{!books ? (
 				<p>Loading...</p>

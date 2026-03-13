@@ -9,7 +9,7 @@ import Header from '../components/Header';
 function Home() {
 	const { book, chapter, verse } = useContext(BibleContext);
 	return (
-		<div className="mt-30">
+		<div className="">
 			<Header />
 			{!book && <Books />}
 			{book && !chapter && <Chapters />}
