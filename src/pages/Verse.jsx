@@ -32,8 +32,8 @@ function Verse() {
 	return (
 		<div ref={ref} className="pb-[25vh]">
 			{verses.map((verse) => (
-				<div key={verse.number} className="px-5 py-3 " id={verse.number}>
-					<h3 className=" float-left h-full pr-3">{verse.number}</h3>{" "}
+				<div key={verse.number} className="px-5 py-3 my-4" id={verse.number}>
+					<h3 className=" float-left h-full pr-3 font-bold">{verse.number}</h3>{" "}
 					<h4 className=" text-justify block">{verse.content[0]}</h4>
 				</div>
 			))}
