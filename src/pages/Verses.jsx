@@ -12,6 +12,7 @@ function Verses() {
 				`https://bible.helloao.org/api/eng_kjv/${book.id}/${chapter}.json`,
 			);
 			setVerses(response.data.chapter.content);
+			console.log(response.data.chapter.content);
 		}
 		try {
 			getVerses();
@@ -19,10 +20,6 @@ function Verses() {
 			console.log(error);
 		}
 	}, [chapter, book.id, setVerses]);
-
-	// useEffect(() => {
-	// 	console.log(verses);
-	// }, [verses]);
 
 	return (
 		<div className="transition ease-in-out duration-200 ">

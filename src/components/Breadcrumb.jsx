@@ -1,9 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BibleContext } from "../context/BibleContext";
 
 function Breadcrumb() {
 	const { book, setBook, chapter, setChapter, verse, setVerse } =
 		useContext(BibleContext);
+	const [pressed, setPressed] = useState(false);
 
 	useEffect(() => {
 		console.log(book, chapter, verse);
@@ -29,21 +30,28 @@ function Breadcrumb() {
 	}
 
 	document.addEventListener("keydown", (event) => {
-		//FIXME: book handleClick is being triggered on chapter handleClick
 		if (event.key === "Escape") {
-			if (book && chapter && verse) {
-				console.log("chapter");
-				return handleClick("chapter");
-			} else if (book && chapter && !verse) {
-				console.log("book");
-				return handleClick("book");
-			} else if (book && !chapter && !verse) {
-				console.log("home");
-				return handleClick("home");
-			}
-			return;
+			setPressed(!pressed);
 		}
 	});
+
+	useEffect(() => {
+		//FIXME: book handleClick is being triggered on chapter handleClick
+		if (book && chapter && verse) {
+			console.log("chapter");
+			handleClick("chapter");
+			return 
+		} else if (book && chapter && verse === null) {
+			console.log("book");
+			handleClick("book");
+			return 
+		} else if (book && chapter === null && verse === null) {
+			console.log("home");
+			handleClick("home");
+			return 
+		}
+		return;
+	}, [pressed]);
 
 	return (
 		<div className="flex flex-row justify-center items-center gap-3 ">

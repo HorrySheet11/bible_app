@@ -12,7 +12,6 @@ function Books() {
 				"https://bible.helloao.org/api/eng_kjv/books.json",
 			);
 			setBooks(response.data.books);
-			console.log(response.data.books);
 		}
 		try {
 			fetchBooks();
@@ -23,12 +22,11 @@ function Books() {
 
 	return (
 		<div className="transition ease-in-out duration-200 ">
-			<h2 className="text-center mb-10">Books</h2>
 			{!books ? (
 				<p>Loading...</p>
 			) : (
 				<>
-					<h2 className="w-full text-center ">Old Testament</h2>
+					<h2 className="w-full text-center font-bold">Old Testament</h2>
 					<div className="grid p-10 gap-5 grid-cols-[repeat(auto-fill,minmax(185px,1fr))] grid-rows-auto">
 						{books?.slice(0, 39).map((book) => (
 							<button
@@ -41,7 +39,7 @@ function Books() {
 							</button>
 						))}
 					</div>
-					<h2 className="w-full text-center ">
+					<h2 className="w-full text-center font-bold">
 						New Testament
 					</h2>
 					<div className="grid p-10 gap-5 grid-cols-[repeat(auto-fill,minmax(185px,1fr))] grid-rows-auto">
