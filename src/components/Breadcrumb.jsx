@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { BibleContext } from "../context/BibleContext";
 
 function Breadcrumb() {
-	const { book, setBook, chapter, setChapter, verse, setVerse } =
+	const { book, setBook, chapter, setChapter, verse, setVerse, setVerses } =
 		useContext(BibleContext);
 	const [pressed, setPressed] = useState(false);
 
@@ -16,11 +16,14 @@ function Breadcrumb() {
 				setBook(null);
 				setChapter(null);
 				setVerse(null);
+				setVerses(null);
 				break;
 
 			case "book":
 				setChapter(null);
 				setVerse(null);
+				setVerses(null);
+
 				break;
 
 			case "chapter":
