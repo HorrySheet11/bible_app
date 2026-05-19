@@ -6,15 +6,17 @@ function Verses() {
 	const { book, chapter, setVerse, verses, setVerses } =
 		useContext(BibleContext);
 
-		//FIXME: fix react-scroll not scrolling to element
 	useEffect(() => {
 		async function getVerses() {
 			const response = await axios.get(
 				`https://bible.helloao.org/api/eng_kjv/${book.id}/${chapter}.json`,
 			);
 			console.log('requested');
-			setVerses(response.data.chapter.content);
-			console.log(response.data.chapter.content);
+			const responsed = response.data.chapter.content;
+			const filteredVerse = responsed.filter((verse) => verse.type === "verse");
+			setVerses(filteredVerse);
+			// setVerses(response.data.chapter.content);
+			// console.log(response.data.chapter.content);
 		}
 		try {
 			getVerses();
@@ -22,6 +24,10 @@ function Verses() {
 			console.log(error);
 		}
 	}, [chapter, book.id, setVerses]);
+
+	useEffect(() => {
+		console.log(verses);
+	}, [verses]);
 
 	return (
 		<div className="transition ease-in-out duration-200 ">
@@ -32,14 +38,14 @@ function Verses() {
 				) : (
 					verses?.map((verse) => (
 						<a key={verse.number} href={`#${verse.number}`}>
-							<button
-								type="button"
-								className="cursor-pointer font-bold w-25 h-25 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
-								onClick={() => setVerse(verse.number)}
-							>
-								<h3>{verse.number}</h3>
-							</button>
-						</a>
+								<button
+									type="button"
+									className="cursor-pointer font-bold w-25 h-25 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+									onClick={() => setVerse(verse.number)}
+								>
+									<h3>{verse.number}</h3>
+								</button>
+							</a>
 					))
 				)}
 			</div>

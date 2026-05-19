@@ -1,8 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { BibleContext } from "../context/BibleContext";
 
 function Verse() {
 	const { verses } = useContext(BibleContext);
+
+		useEffect(() => {
+		console.log(verses);
+	}, [verses]);
 
 	return (
 		<div className="pb-[25vh]">
